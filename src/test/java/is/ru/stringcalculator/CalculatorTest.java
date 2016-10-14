@@ -16,7 +16,7 @@ public class CalculatorTest {
 
 	@Test
 	public void testOneNumber() {
-		assertEquals(1, Calculator.add("1"));
+		assertEquals(5, Calculator.add("5"));
 	}
 
 	@Test
@@ -72,5 +72,15 @@ public class CalculatorTest {
     @Test
     public void testTooHighNumbers() {
     	assertEquals(29, Calculator.add("1\n8,2\n3\n1005,1001\n5,10"));
+    }
+
+    @Test
+    public void testDiffDelim() {
+    	assertEquals(3, Calculator.add("//;\n1;2"));
+    }
+
+    @Test
+    public void testBigDiffDelim() {
+    	assertEquals(10, Calculator.add("//&&&\n3&&&7"));
     }
 }
