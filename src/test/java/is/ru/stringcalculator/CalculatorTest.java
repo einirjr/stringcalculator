@@ -45,7 +45,7 @@ public class CalculatorTest {
     		Calculator.add("-1,2");
     	}
     	catch (IllegalArgumentException e) {
-    		e.printStackTrace();
+    		assertEquals("Negatives not allowed: -1", e.getMessage());
     	}
     }
 
@@ -55,7 +55,7 @@ public class CalculatorTest {
     		Calculator.add("-1,-2,5,-89,33");
     	}
     	catch (IllegalArgumentException e) {
-    		e.printStackTrace();
+    		assertEquals("Negatives not allowed: -1, -2, -89", e.getMessage());
     	}
     }
 
@@ -65,7 +65,7 @@ public class CalculatorTest {
     		Calculator.add("-1\n-2,5\n-89,33");
     	}
     	catch (IllegalArgumentException e) {
-    		e.printStackTrace();
+    		assertEquals("Negatives not allowed: -1, -2, -89", e.getMessage());
     	}
     }
 

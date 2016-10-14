@@ -28,7 +28,7 @@ public class Calculator {
 	// Handling inputs with different delimiter
 	private static String[] splitNumbersDiffDelim(String all) {
 			String delim = all.substring(2, all.indexOf('\n'));
-			String numbers = all.substring(all.indexOf('\n')+1);
+			String numbers = all.substring(all.indexOf('\n') + 1);
 			return numbers.split(delim);
 	}
 	
