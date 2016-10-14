@@ -21,6 +21,18 @@ public class Calculator {
 	private static String[] splitNumbers(String numbers){
 	    return numbers.split(",|\n");
 	}
+
+	private static String buildString(ArrayList<String> negatives) {
+		StringBuilder tmp = new StringBuilder("");
+    	int counter = 0;
+    	for (String i : negatives) {
+    		tmp.append(i);
+    		if (counter < negatives.size() - 1)
+    			tmp.append(", ");
+    		counter++;
+    	}
+    	return tmp.toString();
+	}
       
     private static int sum(String[] numbers){
  	    ArrayList<String> negatives = new ArrayList<String>();
@@ -33,16 +45,7 @@ public class Calculator {
         	}
 
 	    if (negatives.size() > 0) {
-	    	int counter = 0;
-	    	StringBuilder tmp = new StringBuilder("");
-	    	for (String i : negatives) {
-	    		tmp.append(i);
-	    		if (counter < negatives.size() - 1)
-	    			tmp.append(", ");
-	    		counter++;
-	    	}
-	    	//tmp.deleteCharAt(tmp.length() - 1);
-	    	String neg = tmp.toString();
+	    	String neg = buildString(negatives);
 	    	throw new IllegalArgumentException("Negatives not allowed: " + neg);
 	    }
 		return total;

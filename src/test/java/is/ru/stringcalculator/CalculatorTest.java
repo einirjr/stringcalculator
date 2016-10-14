@@ -35,12 +35,42 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testNegatives() {
+    public void testManyNewLines() {
+    	assertEquals(19, Calculator.add("1\n8,2\n3\n5"));
+    }
+
+    @Test
+    public void testOneNegative() {
     	try {
-    		Calculator.add("-1,-2");
+    		Calculator.add("-1,2");
     	}
     	catch (IllegalArgumentException e) {
     		e.printStackTrace();
     	}
+    }
+
+    @Test
+    public void testManyNegatives() {
+    	try {
+    		Calculator.add("-1,-2,5,-89,33");
+    	}
+    	catch (IllegalArgumentException e) {
+    		e.printStackTrace();
+    	}
+    }
+
+    @Test
+    public void testManyNegativesWithNewline() {
+    	try {
+    		Calculator.add("-1\n-2,5\n-89,33");
+    	}
+    	catch (IllegalArgumentException e) {
+    		e.printStackTrace();
+    	}
+    }
+
+        @Test
+    public void testTooHighNumbers() {
+    	assertEquals(29, Calculator.add("1\n8,2\n3\n1005,1001\n5,10"));
     }
 }
