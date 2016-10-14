@@ -69,7 +69,7 @@ public class CalculatorTest {
     	}
     }
 
-        @Test
+    @Test
     public void testTooHighNumbers() {
     	assertEquals(29, Calculator.add("1\n8,2\n3\n1005,1001\n5,10"));
     }

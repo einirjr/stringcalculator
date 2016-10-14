@@ -21,7 +21,7 @@ public class Calculator {
 	private static String[] splitNumbers(String numbers){
 	    return numbers.split(",|\n");
 	}
-
+	// StringBuilder function which builds a string from ArrayList in the correct format to print with exception for negative numbers
 	private static String buildString(ArrayList<String> negatives) {
 		StringBuilder tmp = new StringBuilder("");
     	int counter = 0;
@@ -38,12 +38,14 @@ public class Calculator {
  	    ArrayList<String> negatives = new ArrayList<String>();
  	    int total = 0;
         for(String number : numbers){
-        	if (toInt(number) < 0)
-        		negatives.add(number);
-        	else if (toInt(number) <= 1000)
+        	// Check for negatives which are added to ArrayList to print out with exception later on
+        	if (toInt(number) < 0)				
+        		negatives.add(number);			
+        	// Numbers larger than 1000 ignored, others summed up
+        	else if (toInt(number) <= 1000)		
 		    	total += toInt(number);
         	}
-
+        // Check if there were any negatives, if so throw exception along with corresponding numbers
 	    if (negatives.size() > 0) {
 	    	String neg = buildString(negatives);
 	    	throw new IllegalArgumentException("Negatives not allowed: " + neg);
