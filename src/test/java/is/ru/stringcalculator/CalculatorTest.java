@@ -30,7 +30,17 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testNewLine(){
+    public void testNewLine() {
     	assertEquals(9, Calculator.add("1\n8"));
+    }
+
+    @Test
+    public void testNegatives() {
+    	try {
+    		Calculator.add("-1,-2");
+    	}
+    	catch (IllegalArgumentException e) {
+    		e.printStackTrace();
+    	}
     }
 }
